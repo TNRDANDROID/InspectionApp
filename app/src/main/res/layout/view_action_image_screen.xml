@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.ViewActionImageScreen">
+
+    <include
+        layout="@layout/toolbar_with_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"/>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_margin="@dimen/_10sdp"
+        android:id="@+id/view_action_image_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="4dp"
+        android:scrollbars="vertical" />
+
+
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/refresh"
+
+        android:title="Refresh"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@mipmap/ic_search_white_24dp"
+        android:title="@string/abc_search_hint"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/share"
+
+        android:title="Share"
+        app:showAsAction="always" />
+</menu>

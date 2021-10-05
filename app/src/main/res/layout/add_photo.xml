@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customfontdemo="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/cancel_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:minHeight="?actionBarSize">
+
+
+
+        <com.nic.Inspection.Support.MyCustomTextView
+            android:id="@+id/tv_save_cancel"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/margin"
+            android:background="@drawable/white_bg"
+            android:gravity="center"
+            android:text="Close"
+            android:textColor="@android:color/black"
+            customfontdemo:fontName="@string/font_medium"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <com.nic.Inspection.Support.MyCustomTextView
+        android:id="@+id/tv_create_asset_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#CCC"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="You can enter upto 5 Mobile numbers"
+        android:textSize="@dimen/menu_title_size"
+        android:visibility="gone"
+        customfontdemo:fontName="@string/font_normal" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin"
+            android:orientation="vertical"
+            android:paddingBottom="60dp">
+
+            <LinearLayout
+                android:id="@+id/mobile_number_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/margin"
+                android:background="@drawable/login_button"
+                android:text="Add Photo"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <Button
+                    android:textSize="13sp"
+                    android:id="@+id/btn_save_inspection"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/login_button"
+                    android:text="SAVE IMAGE LOCAL"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

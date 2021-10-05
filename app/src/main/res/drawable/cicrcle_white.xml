@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp"
+                android:top="1dp"/>
+            <solid android:color="#10CCCCCC"/>
+            <corners android:radius="360dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp"
+                android:top="1dp"/>
+            <solid android:color="#10B1B0B0"/>
+            <corners android:radius="360dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp"
+                android:top="1dp"/>
+            <solid android:color="#20CCCCCC"/>
+            <corners android:radius="360dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp"
+                android:top="1dp"/>
+            <solid android:color="#30DFDEDE"/>
+            <corners android:radius="360dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp"
+                android:top="1dp"/>
+            <solid android:color="#30D8D7D7"/>
+            <corners android:radius="360dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp"
+                android:top="1dp"/>
+            <solid android:color="#50F3F1F1"/>
+            <corners android:radius="360dp"/>
+        </shape>
+    </item>
+
+    <!-- Background -->
+    <item>
+        <shape android:shape="oval">
+            <size android:height="@dimen/_50sdp" android:width="@dimen/_50sdp"></size>
+            <gradient android:endColor="@color/white" android:startColor="#F4F6F6"></gradient>
+            <corners android:radius="360dp"/>
+        </shape>
+    </item>
+</layer-list>

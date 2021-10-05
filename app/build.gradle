@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.nic.Inspection"
+        multiDexEnabled true
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 3
+        versionName "3"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            v2SigningEnabled false
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def version = variant.versionName
+            def date = new Date()
+            def formattedDate = date.format('ddMMyy')
+            outputFileName = "Inspection_${variant.buildType.name}_v${version}_${formattedDate}.apk"
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        production {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+
+}
+
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.github.scottyab:showhidepasswordedittext:0.8'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.karumi:dexter:4.2.0'
+    implementation files('libs/volley.jar')
+    implementation 'com.hanks:htextview-rainbow:0.1.6'
+    android {
+        useLibrary 'org.apache.http.legacy'
+    }
+
+    implementation 'com.github.mike14u:croperino:1.1.8'
+}

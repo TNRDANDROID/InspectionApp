@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:customfontdemo="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".Activity.ImagePreviewActionScreen">
+
+    <include
+        layout="@layout/toolbar_with_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"/>
+
+    <com.nic.Inspection.Support.MyCustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_15sdp"
+        customfontdemo:fontName="@string/font_medium"
+        android:visibility="gone"
+        android:text="Please check the Image to Add the Action"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_margin="@dimen/_10sdp"
+        android:id="@+id/image_preview_action_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="4dp"
+        android:scrollbars="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/add_action_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerInParent="true"
+
+            android:gravity="end">
+
+
+            <com.nic.Inspection.Support.MyCustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_button"
+                android:padding="10dp"
+                android:text="Add Action"
+                android:textAlignment="inherit"
+                android:textColor="#000"
+                android:textSize="18sp"
+                customfontdemo:fontName="@string/font_circular_book" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

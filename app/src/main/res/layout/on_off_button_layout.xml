@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:elevation="@dimen/_3sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@drawable/on_off_button_bg_1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_47sdp"
+                android:background="@drawable/on_off_button_bg_1"></RelativeLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:elevation="@dimen/_3sdp"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@drawable/on_off_button_background">
+
+            <RelativeLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/cicrcle_white"></RelativeLayout>
+        </RelativeLayout>
+        </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:customfontdemo="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/district_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="15dp"
+            android:layout_marginTop="15dp"
+
+            card_view:cardCornerRadius="5dp"
+            card_view:cardElevation="5dp">
+
+
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.9"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image_view_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/capture_image"
+                        />
+
+                    <ImageView
+                        android:id="@+id/image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="fitXY"
+                        android:visibility="gone"
+                        />
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="start"-->
+                        <!--android:orientation="horizontal">-->
+
+
+                        <!--<com.nic.RuralInspection.Support.MyCustomTextView-->
+
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:padding="10dp"-->
+                            <!--android:text="Description"-->
+                            <!--android:textAlignment="viewStart"-->
+                            <!--android:textColor="#000"-->
+                            <!--android:textSize="18sp"-->
+                            <!--customfontdemo:fontName="@string/font_circular_book" />-->
+
+
+                    <!--</LinearLayout>-->
+
+                    <!--<View-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="0.5dp"-->
+                        <!--android:layout_gravity="bottom"-->
+                        <!--android:layout_marginLeft="15dp"-->
+                        <!--android:background="@color/dashboard_line_dark" />-->
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+
+                        <EditText
+                            android:id="@+id/description"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:lines="5"
+                            android:gravity="top"
+                            android:layout_marginTop="10dip"
+                            android:layout_marginLeft="10dip"
+                            android:textSize="15sp"
+                            android:textColor="@android:color/black"
+                            android:layout_marginRight="10dip"
+                            android:background="@drawable/gray_background"
+                            android:hint="Enter Description"
+                            customfontdemo:fontName="@string/font_circular_bold" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageView_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="5dp"
+        android:clickable="true"
+        android:src="@mipmap/close_icon" />
+
+</RelativeLayout>

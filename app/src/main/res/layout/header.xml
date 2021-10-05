@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:customfontdemo="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp">
+
+        <RelativeLayout
+            android:layout_marginTop="-200dp"
+            android:layout_marginLeft="-80dp"
+            android:id="@+id/rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_circle_b1"></RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="-55dp"
+            android:layout_marginRight="-50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_circle_b1"></RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/tool_bar_bg_rl"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="-30dp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/circle67"
+            android:padding="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_romantic_tree_shape_with_heart_shaped_leaves" />
+
+
+
+
+        <ImageView
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="-100dp"
+            android:layout_marginTop="-35dp"
+            android:id="@+id/circle4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/circletransparant" />
+        <ImageView
+            android:visibility="gone"
+            android:layout_marginLeft="-25dp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/circle68"
+            android:padding="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_romantic_tree_shape_with_heart_shaped_leaves" />
+
+
+
+
+        <ImageView
+            android:layout_marginLeft="-100dp"
+            android:layout_marginTop="-30dp"
+            android:id="@+id/circle5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/circletransparant" />
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="-100dp"
+            android:layout_marginTop="-60dp"
+            android:id="@+id/circle6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/circletransparant" />
+
+
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="@dimen/_68sdp"
+        android:layout_height="@dimen/_68sdp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/tamilnadu_govt_logo"
+        android:scaleType="centerCrop" />
+    <com.nic.Inspection.Support.MyCustomTextView
+        android:id="@+id/qc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:padding="3dp"
+        android:text="Work Inspection"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold"
+        customfontdemo:fontName="@string/font_circular_bold" />
+
+
+    <com.nic.Inspection.Support.MyCustomTextView
+        android:visibility="gone"
+        android:id="@+id/rural"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerInParent="true"
+        android:padding="3dp"
+        android:text="Rural Development"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        customfontdemo:fontName="@string/font_circular_medium" />
+
+    <com.nic.Inspection.Support.MyCustomTextView
+        android:id="@+id/amp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rural"
+        android:layout_centerInParent="true"
+        android:padding="3dp"
+        android:text=" &amp;"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        customfontdemo:fontName="@string/font_circular_medium" />
+
+    <com.nic.Inspection.Support.MyCustomTextView
+        android:id="@+id/dp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/amp"
+        android:layout_centerInParent="true"
+        android:padding="3dp"
+        android:text="Panchayat Raj Department"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        customfontdemo:fontName="@string/font_circular_medium" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <RelativeLayout
+            android:id="@+id/bg1"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginBottom="-50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_circle_bg_2"></RelativeLayout>
+        <RelativeLayout
+            android:layout_toRightOf="@+id/bg1"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/new_circle_bg_2"></RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+        <RelativeLayout
+            android:id="@+id/bg2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="-50dp"
+            android:layout_marginBottom="-50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_circle_bg_2"></RelativeLayout>
+        <RelativeLayout
+            android:layout_toLeftOf="@+id/bg2"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/new_circle_bg_2"></RelativeLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_alignParentBottom="true">
+        <com.nic.Inspection.Support.MyCustomTextView
+            android:id="@+id/tv_version_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/_34sdp"
+            android:padding="@dimen/_13sdp"
+            android:text="@string/version"
+            android:textAlignment="center"
+            android:textColor="@color/tool_bar_blue"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold" />
+
+        <com.nic.Inspection.Support.MyCustomTextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/_13sdp"
+            android:text="Software Designed &amp; Developed by NIC"
+            android:textColor="@color/tool_bar_blue"
+            android:textSize="@dimen/_13sdp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            customfontdemo:fontName="@string/font_circular_medium" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customfontdemo="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical">
+
+
+    <include
+        android:id="@+id/toolbar_container"
+        layout="@layout/toolbar_with_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_container"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="4dp"
+        android:scrollbarThumbVertical="@drawable/scrollbar_thumb_vertical"
+        android:scrollbarTrackVertical="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.nic.Inspection.Support.MyCustomTextView
+                android:id="@+id/tv_create_alert_name_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_left_20dp"
+                android:layout_marginTop="@dimen/margin_left_20dp"
+                android:layout_marginRight="@dimen/margin_left_20dp"
+                android:text="Project Filter"
+                android:textColor="#7E7C7C"
+                android:textSize="@dimen/_15sdp"
+                customfontdemo:fontName="@string/font_circular_bold" />
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/margin_left_20dp"
+                android:layout_marginTop="@dimen/padding"
+                android:layout_marginRight="@dimen/margin_left_20dp"
+                android:background="@drawable/rectangle_box"
+                android:gravity="center"
+
+                android:orientation="horizontal">
+
+
+                <CheckBox
+                    android:id="@+id/high_value_projects"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:text="High Value Projects Only"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/all_projects"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:text="All Projects"
+                    android:checked="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp" />
+
+
+            </RelativeLayout>
+
+            <com.nic.Inspection.Support.MyCustomTextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_left_20dp"
+                android:layout_marginTop="@dimen/padding"
+                android:layout_marginRight="@dimen/margin_left_20dp"
+                android:text="Financial Year"
+                android:textColor="#7E7C7C"
+                android:textSize="@dimen/_15sdp"
+                android:visibility="visible"
+                customfontdemo:fontName="@string/font_circular_bold" />
+
+            <RelativeLayout
+                android:id="@+id/fin_year_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/header"
+                android:layout_marginLeft="@dimen/margin_left_20dp"
+                android:layout_marginTop="@dimen/padding"
+                android:layout_marginRight="@dimen/margin_left_20dp"
+                android:background="@drawable/rectangle_box"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.nic.Inspection.Support.MyCustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="15dp"
+
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_15sdp"
+                    android:visibility="visible"
+                    customfontdemo:fontName="@string/font_normal" />
+
+                <Spinner
+                    android:id="@+id/financialYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/District_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.nic.Inspection.Support.MyCustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_left_20dp"
+                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginRight="@dimen/margin_left_20dp"
+                    android:text="Select District"
+                    android:textColor="#7E7C7C"
+                    android:textSize="@dimen/_15sdp"
+                    android:visibility="visible"
+                    customfontdemo:fontName="@string/font_circular_bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/header"
+                    android:layout_marginLeft="@dimen/margin_left_20dp"
+                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginRight="@dimen/margin_left_20dp"
+                    android:background="@drawable/rectangle_box"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <com.nic.Inspection.Support.MyCustomTextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="15dp"
+
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_15sdp"
+                        android:visibility="visible"
+                        customfontdemo:fontName="@string/font_normal" />
+
+                    <Spinner
+                        android:id="@+id/district"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center" />
+
+                </RelativeLayout>
+
+                <CheckBox
+                    android:id="@+id/all_district"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="@dimen/margin_left_20dp"
+                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginRight="@dimen/margin_left_20dp"
+                    android:gravity="center"
+                    android:text="All Block"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/block_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.nic.Inspection.Support.MyCustomTextView
+                    android:id="@+id/tv_create_alert_type_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_left_20dp"
+                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginRight="@dimen/margin_left_20dp"
+                    android:text="Select Block"
+                    android:textColor="#7E7C7C"
+                    android:textSize="@dimen/_15sdp"
+                    android:visibility="visible"
+                    customfontdemo:fontName="@string/font_circular_bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/header"
+                    android:layout_marginLeft="@dimen/margin_left_20dp"
+                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginRight="@dimen/margin_left_20dp"
+                    android:background="@drawable/rectangle_box"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <com.nic.Inspection.Support.MyCustomTextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="15dp"
+
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_15sdp"
+                        android:visibility="visible"
+                        customfontdemo:fontName="@string/font_normal" />
+
+                    <Spinner
+                        android:id="@+id/block"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center" />
+
+                </RelativeLayout>
+
+                <CheckBox
+                    android:id="@+id/all_block"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="@dimen/margin_left_20dp"
+                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginRight="@dimen/margin_left_20dp"
+                    android:gravity="center"
+                    android:text="All Block"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:id="@+id/Village_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.nic.Inspection.Support.MyCustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_left_20dp"
+                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginRight="@dimen/margin_left_20dp"
+                    android:text="Select Village"
+                    android:textColor="#7E7C7C"
+                    android:textSize="@dimen/_15sdp"
+                    android:visibility="visible"
+                    customfontdemo:fontName="@string/font_circular_bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/header"
+                    android:layout_marginLeft="@dimen/margin_left_20dp"
+                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginRight="@dimen/margin_left_20dp"
+                    android:background="@drawable/rectangle_box"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <com.nic.Inspection.Support.MyCustomTextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="15dp"
+
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_15sdp"
+                        android:visibility="visible"
+                        customfontdemo:fontName="@string/font_normal" />
+
+                    <Spinner
+                        android:id="@+id/village"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center" />
+
+                </RelativeLayout>
+
+                <CheckBox
+                    android:id="@+id/all_village"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="@dimen/margin_left_20dp"
+                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginRight="@dimen/margin_left_20dp"
+
+
+                    android:gravity="center"
+                    android:text="All Village"
+
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+            <com.nic.Inspection.Support.MyCustomTextView
+                android:id="@+id/alert_severity_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_left_20dp"
+                android:layout_marginTop="@dimen/padding"
+                android:layout_marginRight="@dimen/margin_left_20dp"
+                android:text="Select Scheme"
+                android:textColor="#7E7C7C"
+                android:textSize="@dimen/_15sdp"
+                android:visibility="visible"
+                customfontdemo:fontName="@string/font_circular_bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/header"
+                android:layout_marginLeft="@dimen/margin_left_20dp"
+                android:layout_marginTop="@dimen/padding"
+                android:layout_marginRight="@dimen/margin_left_20dp"
+                android:background="@drawable/rectangle_box"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.nic.Inspection.Support.MyCustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="15dp"
+
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_15sdp"
+                    android:visibility="visible"
+                    customfontdemo:fontName="@string/font_normal" />
+
+                <Spinner
+                    android:id="@+id/scheme"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center" />
+
+            </RelativeLayout>
+
+            <CheckBox
+                android:id="@+id/all_scheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/margin_left_20dp"
+                android:layout_marginTop="@dimen/padding"
+                android:layout_marginRight="@dimen/margin_left_20dp"
+
+
+                android:gravity="center"
+                android:text="All Schemes"
+                android:textColor="@android:color/black"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/login_button"
+                    android:text="SUBMIT"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
