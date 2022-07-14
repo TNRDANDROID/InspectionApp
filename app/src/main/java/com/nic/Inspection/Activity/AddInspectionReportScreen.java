@@ -15,18 +15,22 @@ import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.media.ExifInterface;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.speech.RecognizerIntent;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Base64;
 import android.util.Log;
@@ -79,6 +83,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CAMERA;
@@ -145,6 +150,16 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
     private List<BlockListValue> imagelistvalues = new ArrayList<>();
     private boolean imageboolean;
 
+
+    ///Speech to Text
+    private static final int REMARK_SPEECH_REQUEST_CODE = 103;
+    private static final int IMAGE_REMARK_SPEECH_REQUEST_CODE = 104;
+    private ImageView mic_icon;
+    String mic_or_close_text="mic";
+    EditText image_description;
+    String  image_description_mic="mic";
+    ImageView  image_description_mic_view;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -167,6 +182,8 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
         block_name_tv = (MyCustomTextView) findViewById(R.id.block_name_tv);
         fin_year_tv = (MyCustomTextView) findViewById(R.id.fin_year_tv);
 
+        mic_icon = (ImageView) findViewById(R.id.mic);
+
         projectName = (MyCustomTextView) findViewById(R.id.project_title_tv);
         amountTv = (MyCustomTextView) findViewById(R.id.amount_tv);
         levelTv = (MyCustomTextView) findViewById(R.id.level_tv);
@@ -183,6 +200,7 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
         homeimg = (ImageView) findViewById(R.id.homeimg);
         back_img.setOnClickListener(this);
         homeimg.setOnClickListener(this);
+        mic_icon.setOnClickListener(this);
 
         take_photo.setOnClickListener(this);
         submit.setOnClickListener(this);
@@ -252,6 +270,19 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
                 }
                 else {
                     Utils.showAlert(this,"Please Take photo");
+                }
+                break;
+
+            case R.id.mic :
+                if(mic_or_close_text.equals("mic")){
+                    mic_icon.setImageResource(R.drawable.ic_close_icon);
+                    mic_or_close_text ="close";
+                    speechToText("");
+                }
+                else {
+                    mic_icon.setImageResource(R.drawable.ic_mic_icon);
+                    mic_or_close_text= "mic";
+                    remarkTv.setText("");
                 }
 
                 break;
@@ -440,9 +471,17 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
             }
         });
         Button done = (Button) dialog.findViewById(R.id.btn_save_inspection);
+        ImageView back = (ImageView) dialog.findViewById(R.id.back);
         done.setGravity(Gravity.CENTER);
         done.setVisibility(View.VISIBLE);
         done.setTypeface(FontCache.getInstance(this).getFont(FontCache.Font.HEAVY));
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         done.setOnClickListener(new View.OnClickListener() {
 
@@ -568,6 +607,7 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
             public void onClick(View v) {
                 if (imageView.getDrawable() != null && viewArrayList.size()>0) {
                     dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+                    image_description_mic= "mic";
                     updateView(AddInspectionReportScreen.this, mobileNumberLayout, "", type);
                 } else {
                     Utils.showAlert(AddInspectionReportScreen.this, "First Capture Image then add another Image!");
@@ -720,12 +760,14 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
         final ImageView imageView_close = (ImageView) hiddenInfo.findViewById(R.id.imageView_close);
         imageView = (ImageView) hiddenInfo.findViewById(R.id.image_view);
         image_view_preview = (ImageView) hiddenInfo.findViewById(R.id.image_view_preview);
+        image_description_mic_view = (ImageView) hiddenInfo.findViewById(R.id.mic);
         final EditText myEditTextView = (EditText) hiddenInfo.findViewById(R.id.description);
+        image_description = (EditText) hiddenInfo.findViewById(R.id.description);
 
 
         Typeface typeFace = Typeface.createFromAsset(activity.getAssets(), "fonts/Avenir-Roman.ttf");
 
-        myEditTextView.setSelection(0);
+        image_description.setSelection(0);
         if ("Mobile".equalsIgnoreCase(type)) {
 
             if (!values.isEmpty()) {
@@ -733,7 +775,7 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
                 if (values.length() > 0 && values.contains("-")) {
                     String[] mobile = values.split("-");
                     if (mobile.length == 2) {
-                        myEditTextView.setText(values.split("-")[1]);
+                        image_description.setText(values.split("-")[1]);
                         int countryCode = Integer.parseInt(values.split("-")[0]);
 
                     }
@@ -745,7 +787,7 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
         if ("localImage".equalsIgnoreCase(type)) {
             int i = Integer.parseInt(values);
             if (!values.isEmpty()) {
-                myEditTextView.setText(imagelistvalues.get(i).getDescription());
+                image_description.setText(imagelistvalues.get(i).getDescription());
 
                 image_view_preview.setVisibility(View.GONE);
                 imageView.setVisibility(View.VISIBLE);
@@ -779,6 +821,21 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
             @Override
             public void onClick(View v) {
                 getLatLong();
+            }
+        });
+        image_description_mic_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(image_description_mic.equals("mic")){
+                    image_description_mic_view.setImageResource(R.drawable.ic_close_icon);
+                    image_description_mic ="close";
+                    speechToText("image_description");
+                }
+                else {
+                    image_description_mic_view.setImageResource(R.drawable.ic_mic_icon);
+                    image_description_mic= "mic";
+                    image_description.setText("");
+                }
             }
         });
         emailOrMobileLayout.addView(hiddenInfo);
@@ -1057,6 +1114,29 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
                     }
                 }
                 break;
+
+            case REMARK_SPEECH_REQUEST_CODE:
+                if (resultCode == RESULT_OK && data != null) {
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    remarkTv.setText(Objects.requireNonNull(result).get(0));
+                    mic_icon.setImageResource(R.drawable.ic_mic_icon);
+                    mic_or_close_text= "mic";
+
+                }
+
+                break;
+
+            case IMAGE_REMARK_SPEECH_REQUEST_CODE:
+                if (resultCode == RESULT_OK && data != null) {
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    image_description.setText(Objects.requireNonNull(result).get(0));
+                    image_description_mic_view.setImageResource(R.drawable.ic_mic_icon);
+                    image_description_mic= "mic";
+
+                }
+
+                break;
+
             default:
                 break;
         }
@@ -1439,5 +1519,31 @@ public class AddInspectionReportScreen extends AppCompatActivity implements View
             a.printStackTrace();
         }
 
+    }
+
+    public void speechToText(String type){
+        Intent intent
+                = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,
+                "en");
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text");
+
+        try {
+            if(type.equals("")){
+                startActivityForResult(intent, REMARK_SPEECH_REQUEST_CODE);
+            }
+            else {
+                startActivityForResult(intent, IMAGE_REMARK_SPEECH_REQUEST_CODE);
+            }
+
+        }
+        catch (Exception e) {
+            Toast
+                    .makeText(AddInspectionReportScreen.this, " " + e.getMessage(),
+                            Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 }

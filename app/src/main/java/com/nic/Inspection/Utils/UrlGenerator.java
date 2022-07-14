@@ -7,18 +7,18 @@ package com.nic.Inspection.Utils;
 public class UrlGenerator {
 
     public static String getLoginUrl() {
-        return "https://tnrd.gov.in/project/webservices_forms/login_service/login_services.php";
+        return "https://drdpr.tn.gov.in/project/webservices_forms/login_service/login_services.php";
     }
 
     public static String getServicesListUrl() {
-        return "https://tnrd.gov.in/project/webservices_forms/master_services/master_services.php";
+        return "https://drdpr.tn.gov.in/project/webservices_forms/master_services/master_services.php";
     }
 
     public static String getInspectionServicesListUrl() {
-        return "https://tnrd.gov.in/project/webservices_forms/inspection/inspection_services.php";
+        return "https://drdpr.tn.gov.in/project/webservices_forms/inspection/inspection_services.php";
     }
 
     public static String getTnrdHostName() {
-        return "tnrd.gov.in";
+        return "drdpr.tn.gov.in";
     }
 }

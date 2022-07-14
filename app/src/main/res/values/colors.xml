@@ -26,6 +26,13 @@
     <color name="software_designed_text">#0091EA</color>
     <color name="gray_text_colour">#504E4E</color>
 
+    <color name="colr_primary_lite_1">#637afe</color>
+    <color name="colr_primary_lite_2">#95a5fe</color>
+    <color name="text_colour">#fedf30</color>
+    <color name="dashboard_text_colour">#4A76F1</color>
+    <color name="dashboard_count_text_colour">#344050</color>
+
+
     <!-- dots active colors -->
     <color name="dot_light_screen1">#f98da5</color>
     <color name="dot_light_screen2">#8cf9eb</color>

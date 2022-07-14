@@ -15,20 +15,23 @@ import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Criteria;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+
+import android.speech.RecognizerIntent;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Base64;
 import android.util.Log;
@@ -79,6 +82,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CAMERA;
@@ -137,6 +141,15 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
     private JSONArray updatedJsonArray;
     private boolean imagebooleanAction;
 
+    ///Speech To Text
+    private static final int REMARK_SPEECH_REQUEST_CODE = 103;
+    private static final int IMAGE_REMARK_SPEECH_REQUEST_CODE = 104;
+    private ImageView mic_icon;
+    String mic_or_close_text="mic";
+    EditText image_description;
+    String  image_description_mic="mic";
+    ImageView  image_description_mic_view;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,6 +171,9 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
         village_name_tv = (MyCustomTextView) findViewById(R.id.village_name_tv);
         fin_year_tv = (MyCustomTextView) findViewById(R.id.fin_year_tv);
         title_tv = (MyCustomTextView) findViewById(R.id.title_tv);
+
+        mic_icon = (ImageView) findViewById(R.id.mic);
+        //remarkTv = (EditText) findViewById(R.id.remark_action_tv);
 
         projectName = (MyCustomTextView) findViewById(R.id.project_title_tv);
         amountTv = (MyCustomTextView) findViewById(R.id.amount_tv);
@@ -192,6 +208,7 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
         back_img.setOnClickListener(this);
         home_img.setOnClickListener(this);
         take_photo.setOnClickListener(this);
+        mic_icon.setOnClickListener(this);
         submit.setOnClickListener(this);
         new CroperinoConfig("IMG_" + System.currentTimeMillis() + ".jpg", "/MikeLau/Pictures", "/sdcard/MikeLau/Pictures");
         CroperinoFileUtil.setupDirectory(ViewInspectionInActionScreen.this);
@@ -230,6 +247,20 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
 
             case R.id.take_photo:
                 imageWithDescription(take_photo, "mobile", scrollView);
+                break;
+
+            case R.id.mic :
+                if(mic_or_close_text.equals("mic")){
+                    mic_icon.setImageResource(R.drawable.ic_close_icon);
+                    mic_or_close_text ="close";
+                    speechToText("");
+                }
+                else {
+                    mic_icon.setImageResource(R.drawable.ic_mic_icon);
+                    mic_or_close_text= "mic";
+                    remark_action_tv.setText("");
+                }
+
                 break;
         }
     }
@@ -513,6 +544,7 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
             public void onClick(View v) {
                 if (imageView.getDrawable() != null) {
                     dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+                    image_description_mic="mic";
                     updateView(ViewInspectionInActionScreen.this, mobileNumberLayout, "", type);
                 } else {
                     Utils.showAlert(ViewInspectionInActionScreen.this, "Capture Image!");
@@ -641,19 +673,20 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
         final ImageView imageView_close = (ImageView) hiddenInfo.findViewById(R.id.imageView_close);
         imageView = (ImageView) hiddenInfo.findViewById(R.id.image_view);
         image_view_preview = (ImageView) hiddenInfo.findViewById(R.id.image_view_preview);
+        image_description_mic_view = (ImageView) hiddenInfo.findViewById(R.id.mic);
         final EditText myEditTextView = (EditText) hiddenInfo.findViewById(R.id.description);
-
+        image_description = (EditText) hiddenInfo.findViewById(R.id.description);
 
         Typeface typeFace = Typeface.createFromAsset(activity.getAssets(), "fonts/Avenir-Roman.ttf");
 
-        myEditTextView.setSelection(0);
+        image_description.setSelection(0);
         if ("Mobile".equalsIgnoreCase(type)) {
 
             if (!values.isEmpty()) {
                 if (values.length() > 0 && values.contains("-")) {
                     String[] mobile = values.split("-");
                     if (mobile.length == 2) {
-                        myEditTextView.setText(values.split("-")[1]);
+                        image_description.setText(values.split("-")[1]);
                         int countryCode = Integer.parseInt(values.split("-")[0]);
 
                     }
@@ -666,7 +699,7 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
         if ("localImage".equalsIgnoreCase(type)) {
             int i = Integer.parseInt(values);
             if (!values.isEmpty()) {
-                myEditTextView.setText(imagelistvalues.get(i).getDescription());
+                image_description.setText(imagelistvalues.get(i).getDescription());
 
                 image_view_preview.setVisibility(View.GONE);
                 imageView.setVisibility(View.VISIBLE);
@@ -703,6 +736,21 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
                 getLatLong();
             }
         });
+        image_description_mic_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(image_description_mic.equals("mic")){
+                    image_description_mic_view.setImageResource(R.drawable.ic_close_icon);
+                    image_description_mic ="close";
+                    speechToText("image_description");
+                }
+                else {
+                    image_description_mic_view.setImageResource(R.drawable.ic_mic_icon);
+                    image_description_mic= "mic";
+                    image_description.setText("");
+                }
+            }
+        });
         emailOrMobileLayout.addView(hiddenInfo);
 
         View vv = emailOrMobileLayout.getChildAt(viewArrayList.size());
@@ -717,7 +765,19 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
         mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         mlocListener = new MyLocationListener();
 
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+        criteria.setPowerRequirement(Criteria.POWER_HIGH);
+        criteria.setAltitudeRequired(false);
+        criteria.setSpeedRequired(false);
+        criteria.setCostAllowed(true);
+        criteria.setBearingRequired(false);
 
+        //API level 9 and up
+        criteria.setHorizontalAccuracy(Criteria.ACCURACY_HIGH);
+        criteria.setVerticalAccuracy(Criteria.ACCURACY_HIGH);
+        Integer gpsFreqInMillis = 1000;
+        Integer gpsFreqInDistance = 1;
         // permission was granted, yay! Do the
         // location-related task you need to do.
         if (ContextCompat.checkSelfPermission(ViewInspectionInActionScreen.this,
@@ -725,7 +785,8 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
                 == PackageManager.PERMISSION_GRANTED) {
 
             //Request location updates:
-            mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
+            //mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
+            mlocManager.requestLocationUpdates(gpsFreqInMillis, gpsFreqInDistance, criteria, mlocListener, null);
 
         }
 
@@ -979,6 +1040,33 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
                     }
                 }
                 break;
+
+            case REMARK_SPEECH_REQUEST_CODE:
+
+                if (resultCode == RESULT_OK && data != null) {
+                    ArrayList<String> result = data.getStringArrayListExtra(
+                            RecognizerIntent.EXTRA_RESULTS);
+                    remark_action_tv.setText(
+                            Objects.requireNonNull(result).get(0));
+                    mic_icon.setImageResource(R.drawable.ic_mic_icon);
+                    mic_or_close_text= "mic";
+
+                }
+
+                break;
+
+            case IMAGE_REMARK_SPEECH_REQUEST_CODE:
+                if (resultCode == RESULT_OK && data != null) {
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    image_description.setText(Objects.requireNonNull(result).get(0));
+                    image_description_mic_view.setImageResource(R.drawable.ic_mic_icon);
+                    image_description_mic= "mic";
+
+                }
+
+                break;
+
+
             default:
                 break;
         }
@@ -1169,7 +1257,7 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
         JSONObject dataSet = new JSONObject();
         dataSet.put(AppConstant.KEY_USER_NAME, prefManager.getUserName());
         dataSet.put(AppConstant.DATA_CONTENT, authKey);
-        Log.d("saving", "" + authKey);
+        //Log.d("saving", "" + authKey);
         return dataSet;
     }
 
@@ -1298,6 +1386,32 @@ public class ViewInspectionInActionScreen extends AppCompatActivity implements V
             j.printStackTrace();
         } catch (ArrayIndexOutOfBoundsException a) {
             a.printStackTrace();
+        }
+    }
+
+    public void speechToText(String type){
+        Intent intent
+                = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,
+                "en");
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text");
+
+        try {
+            if(type.equals("")){
+                startActivityForResult(intent, REMARK_SPEECH_REQUEST_CODE);
+            }
+            else {
+                startActivityForResult(intent, IMAGE_REMARK_SPEECH_REQUEST_CODE);
+            }
+
+        }
+        catch (Exception e) {
+            Toast
+                    .makeText(ViewInspectionInActionScreen.this, " " + e.getMessage(),
+                            Toast.LENGTH_SHORT)
+                    .show();
         }
     }
 

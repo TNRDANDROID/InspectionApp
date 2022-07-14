@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:customfontdemo="http://schemas.android.com/apk/res-auto"
-    xmlns:local="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?actionBarSize">
+    android:minHeight="?actionBarSize"
+    android:background="@drawable/dasborad_bg_gradient">
+
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/tool_bar_bg_rl"
         android:layout_width="match_parent"
         android:layout_height="130dp">
@@ -70,7 +71,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp">
+        android:layout_height="@dimen/_250sdp">
     <ImageView
         android:id="@+id/backimg"
         android:layout_width="45dp"
@@ -83,6 +84,10 @@
         android:src="@mipmap/dashboard_icon"
         android:visibility="gone"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tool_bar_rl_1">
     <com.nic.Inspection.Support.MyCustomTextView
         android:layout_marginTop="@dimen/_15sdp"
         android:id="@+id/title_tv"
@@ -90,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        android:textSize="15sp"
+        android:textSize="16sp"
         style="@style/font_circular_bold" />
     <ImageView
         android:layout_marginTop="@dimen/_15sdp"
@@ -101,66 +106,73 @@
         android:layout_marginRight="@dimen/_8sdp"
         android:layout_alignParentRight="true"
         android:src="@drawable/ic_signout" />
-        <RelativeLayout
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_below="@+id/tool_bar_rl_1"
+            android:visibility="visible"
             android:layout_centerHorizontal="true"
             android:id="@+id/relative2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:paddingBottom="0dp">
-
             <RelativeLayout
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:background="@drawable/circletransparant"></RelativeLayout>
+            <RelativeLayout
+                android:layout_centerHorizontal="true"
                 android:id="@+id/imgUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"
                 android:background="@drawable/round_circle_dotted_lines"
                 >
 
                 <ImageView
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
-                    android:layout_margin="5dp"
                     android:layout_centerInParent="true"
                     android:padding="3dp"
-                    android:tint="@color/colorPrimary"
                     android:src="@drawable/usernamebg"
                     />
             </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/name_layout"
-                android:layout_toRightOf="@+id/imgUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
-                >
-
-                <TextView
-                    android:id="@+id/s_d_b_type_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="Zonal"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_15sdp" />
-                <TextView
-                    android:id="@+id/s_d_b_type_name_value"
-                    android:layout_below="@+id/s_d_b_type_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="Name"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_16sdp" />
-
-
-            </RelativeLayout>
         </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name_rl"
+        android:layout_below="@+id/relative2">
+
+        <com.nic.Inspection.Support.MyCustomTextView
+            android:id="@+id/ins_off_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_centerHorizontal="true"
+            android:text="Officer Name"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+
+        <com.nic.Inspection.Support.MyCustomTextView
+            android:id="@+id/off_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ins_off_title"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+
+
+    </RelativeLayout>
 
     </RelativeLayout>
 

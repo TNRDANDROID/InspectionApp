@@ -13,7 +13,7 @@
 
 
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_margin="@dimen/_10sdp"
         android:id="@+id/view_action_image_recyclerview"
         android:layout_width="match_parent"

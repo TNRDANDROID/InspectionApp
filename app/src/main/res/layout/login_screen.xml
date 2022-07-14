@@ -24,7 +24,8 @@
         android:visibility="gone"
         android:layout_below="@+id/qc"
         android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UnknownIdInLayout">
 
 
         <LinearLayout
@@ -33,7 +34,7 @@
             android:background="@drawable/log_in_details_bg"
             android:orientation="vertical">
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_margin="@dimen/_10sdp"
                 android:id="@+id/input_layout_email"
                 android:layout_width="match_parent"
@@ -54,7 +55,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="20dp"
                     customfontdemo:fontName="@string/font_circular_medium" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <View
                 android:visibility="gone"
@@ -64,7 +65,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@color/border_line" />
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_margin="@dimen/_10sdp"
                 android:id="@+id/input_layout_password"
                 android:layout_width="match_parent"
@@ -86,7 +87,7 @@
                     android:textSize="20dp"
                     tools:ignore="HardcodedText"
                     customfontdemo:fontName="@string/font_circular_medium" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <View
                 android:visibility="gone"
@@ -137,7 +138,7 @@
 
     </LinearLayout>
 
-        <RelativeLayout
+       <!-- <RelativeLayout
             android:layout_centerInParent="true"
             android:layout_margin="@dimen/_15sdp"
             android:layout_width="match_parent"
@@ -225,7 +226,7 @@
 
 
         </RelativeLayout>
-
+-->
 
 
 

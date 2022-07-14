@@ -15,6 +15,7 @@
 
 
     <ScrollView
+        android:layout_marginTop="-15dp"
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +29,6 @@
             android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_24sdp"
             android:layout_gravity="start"
             android:orientation="vertical">
 
@@ -92,18 +92,17 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/toolbar"
                     android:layout_centerInParent="true"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="15dp"
-
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
-
                     card_view:cardCornerRadius="@dimen/_10sdp"
                     card_view:cardElevation="@dimen/_6sdp">
 
@@ -125,6 +124,7 @@
                                 android:orientation="vertical">
 
                                 <RelativeLayout
+
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/text_view_bg_rect_curve"
@@ -309,14 +309,13 @@
                                             </LinearLayout>
                                             <LinearLayout
                                                 android:layout_width="0dp"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:layout_weight="8"
                                                 android:gravity="center_vertical">
                                                 <com.nic.Inspection.Support.MyCustomTextView
                                                     android:id="@+id/selected_finyear_tv"
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:text=""
                                                     android:textAlignment="textStart"
                                                     android:textColor="@color/gray_text_colour"
                                                     android:textSize="13sp"
@@ -404,10 +403,10 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <LinearLayout
-                                        android:id="@+id/district_hide_layout"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
+                                            android:id="@+id/district_hide_layout"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
 
                                         <LinearLayout
                                             android:layout_width="0dp"
@@ -479,12 +478,12 @@
                                         </LinearLayout>
                                     </LinearLayout>
                                         <LinearLayout
-                                        android:layout_marginBottom="@dimen/_5sdp"
-                                        android:id="@+id/select_district_layout"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:visibility="gone">
+                                            android:layout_marginBottom="@dimen/_5sdp"
+                                            android:id="@+id/select_district_layout"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
                                         <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
@@ -492,7 +491,7 @@
                                             >
                                             <LinearLayout
                                                 android:layout_width="0dp"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:layout_weight="8"
                                                 android:gravity="center_vertical|end">
                                                 <com.nic.Inspection.Support.MyCustomTextView
@@ -522,7 +521,7 @@
                                             </LinearLayout>
                                             <LinearLayout
                                                 android:layout_width="0dp"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:layout_weight="8"
                                                 android:gravity="center_vertical">
                                                 <com.nic.Inspection.Support.MyCustomTextView
@@ -612,18 +611,18 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
-                                    <LinearLayout
-                                        android:id="@+id/block_hide_layout"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
-
                                         <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="8"
-                                            android:gravity="center_vertical|end"
-                                            android:orientation="vertical">
+                                            android:id="@+id/block_hide_layout"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="8"
+                                                android:gravity="center_vertical|end"
+                                                android:orientation="vertical">
 
                                             <com.nic.Inspection.Support.MyCustomTextView
 
@@ -688,126 +687,126 @@
 
                                         </LinearLayout>
                                     </LinearLayout>
-                                    <LinearLayout
-                                        android:layout_marginBottom="@dimen/_5sdp"
-                                        android:id="@+id/select_block_layout"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:visibility="gone">
                                         <LinearLayout
+                                            android:layout_marginBottom="@dimen/_5sdp"
+                                            android:id="@+id/select_block_layout"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:orientation="horizontal"
-                                            >
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
                                             <LinearLayout
-                                                android:layout_width="0dp"
-                                                android:layout_height="match_parent"
-                                                android:layout_weight="8"
-                                                android:gravity="center_vertical|end">
-                                                <com.nic.Inspection.Support.MyCustomTextView
-                                                    android:id="@+id/myCustomTextView"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:text="Selected Block"
-                                                    android:textAlignment="textStart"
-                                                    android:textColor="@color/red_text_colour"
-                                                    android:textSize="15sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
-                                            </LinearLayout>
-                                            <LinearLayout
-                                                android:layout_width="wrap_content"
+                                                android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:gravity="center_horizontal"
-                                                android:orientation="vertical">
-
-                                                <com.nic.Inspection.Support.MyCustomTextView
+                                                android:orientation="horizontal"
+                                                >
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="8"
+                                                    android:gravity="center_vertical|end">
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:id="@+id/myCustomTextView"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="Selected Block"
+                                                        android:textAlignment="textStart"
+                                                        android:textColor="@color/red_text_colour"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
+                                                </LinearLayout>
+                                                <LinearLayout
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:padding="10dp"
-                                                    android:text=":"
-                                                    android:textColor="#7E7C7C"
-                                                    android:textSize="15sp"
-                                                    customfontdemo:fontName="@string/font_circular_book" />
+                                                    android:gravity="center_horizontal"
+                                                    android:orientation="vertical">
 
-                                            </LinearLayout>
-                                            <LinearLayout
-                                                android:layout_width="0dp"
-                                                android:layout_height="match_parent"
-                                                android:layout_weight="8"
-                                                android:gravity="center_vertical">
-                                                <com.nic.Inspection.Support.MyCustomTextView
-                                                    android:id="@+id/selected_block_tv"
-                                                    android:layout_width="wrap_content"
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:padding="10dp"
+                                                        android:text=":"
+                                                        android:textColor="#7E7C7C"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_book" />
+
+                                                </LinearLayout>
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
                                                     android:layout_height="wrap_content"
-                                                    android:text=""
-                                                    android:textColor="@color/gray_text_colour"
-                                                    android:textSize="13sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
+                                                    android:layout_weight="8"
+                                                    android:gravity="center_vertical">
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:id="@+id/selected_block_tv"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text=""
+                                                        android:textColor="@color/gray_text_colour"
+                                                        android:textSize="13sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
 
+                                                </LinearLayout>
                                             </LinearLayout>
-                                        </LinearLayout>
 
-                                        <TableLayout
-                                            android:visibility="gone"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content">
-
-                                            <TableRow
+                                            <TableLayout
+                                                android:visibility="gone"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content">
 
-                                                <com.nic.Inspection.Support.MyCustomTextView
-                                                    android:id="@+id/myCustomTextView1"
+                                                <TableRow
                                                     android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
+                                                    android:layout_height="wrap_content">
 
-                                                    android:gravity="end"
-                                                    android:padding="5sp"
-                                                    android:text="Selected Block"
-                                                    android:textColor="@color/red_text_colour"
-                                                    android:textSize="15sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:id="@+id/myCustomTextView1"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
 
-
-                                                <!--<com.nic.RuralInspection.Support.MyCustomTextView-->
-                                                <!--android:layout_width="0dp"-->
-                                                <!--android:layout_height="wrap_content"-->
-                                                <!--android:layout_weight=".10"-->
-                                                <!--android:gravity="center|left"-->
-                                                <!--android:paddingLeft="5dp"-->
-                                                <!--android:text=":"-->
-                                                <!--android:textColor="@android:color/black"-->
-                                                <!--android:textSize="18sp"-->
-                                                <!--customfontdemo:fontName="@string/font_normal" />-->
-
-                                                <com.nic.Inspection.Support.MyCustomTextView
-                                                    android:id="@+id/selected_block_tv1"
-                                                    android:layout_width="0dp"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_weight="0.48"
-                                                    android:gravity="center|left"
-                                                    android:padding="10sp"
-                                                    android:text=""
-                                                    android:textColor="@color/gray_text_colour"
-                                                    android:textSize="15sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
+                                                        android:gravity="end"
+                                                        android:padding="5sp"
+                                                        android:text="Selected Block"
+                                                        android:textColor="@color/red_text_colour"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
 
 
-                                            </TableRow>
+                                                    <!--<com.nic.RuralInspection.Support.MyCustomTextView-->
+                                                    <!--android:layout_width="0dp"-->
+                                                    <!--android:layout_height="wrap_content"-->
+                                                    <!--android:layout_weight=".10"-->
+                                                    <!--android:gravity="center|left"-->
+                                                    <!--android:paddingLeft="5dp"-->
+                                                    <!--android:text=":"-->
+                                                    <!--android:textColor="@android:color/black"-->
+                                                    <!--android:textSize="18sp"-->
+                                                    <!--customfontdemo:fontName="@string/font_normal" />-->
+
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:id="@+id/selected_block_tv1"
+                                                        android:layout_width="0dp"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_weight="0.48"
+                                                        android:gravity="center|left"
+                                                        android:padding="10sp"
+                                                        android:text=""
+                                                        android:textColor="@color/gray_text_colour"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
 
 
-                                        </TableLayout>
+                                                </TableRow>
 
-                                        <View
-                                            android:visibility="gone"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0.1dp"
-                                            android:layout_gravity="bottom"
-                                            android:layout_marginLeft="15dp"
-                                            android:background="@color/dashboard_line_dark" />
 
-                                    </LinearLayout>
+                                            </TableLayout>
+
+                                            <View
+                                                android:visibility="gone"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="0.1dp"
+                                                android:layout_gravity="bottom"
+                                                android:layout_marginLeft="15dp"
+                                                android:background="@color/dashboard_line_dark" />
+
+                                        </LinearLayout>
 
                                     </LinearLayout>
 
@@ -826,121 +825,42 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="8"
-                                            android:gravity="center_vertical|end"
-                                            android:orientation="vertical">
-
-                                            <com.nic.Inspection.Support.MyCustomTextView
-
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="Select Village"
-                                                android:textAlignment="textStart"
-                                                android:textColor="#7E7C7C"
-                                                android:textSize="15sp"
-                                                customfontdemo:fontName="@string/font_circular_book" />
-
-                                        </LinearLayout>
-
-
-                                        <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="match_parent"
-                                            android:gravity="center_vertical"
-                                            android:orientation="vertical">
-
-                                            <com.nic.Inspection.Support.MyCustomTextView
-
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-
-                                                android:padding="10dp"
-                                                android:text=":"
-                                                android:textColor="#7E7C7C"
-                                                android:textSize="15sp"
-                                                customfontdemo:fontName="@string/font_circular_book" />
-
-                                        </LinearLayout>
-
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="8"
-                                            android:gravity="start"
-                                            android:orientation="horizontal">
-
-                                            <Button
-                                                android:id="@+id/btn_view_village"
-                                                android:layout_width="90dp"
-                                                android:layout_height="30dp"
-                                                android:layout_alignParentBottom="true"
-                                                android:layout_centerInParent="true"
-                                                android:layout_margin="8dp"
-                                                android:background="@drawable/add_button"
-                                                android:text="select"
-                                                android:textAllCaps="true"
-                                                android:textColor="@android:color/white" />
-
-                                            <ImageView
-                                                android:layout_gravity="center_vertical"
-                                                android:visibility="gone"
-                                                android:rotation="180"
-                                                android:layout_width="@dimen/_15sdp"
-                                                android:layout_height="@dimen/_15sdp"
-                                                android:id="@+id/village_extended_icon"
-                                                android:src="@drawable/back"
-                                                android:layout_alignParentEnd="true"
-                                                android:layout_centerVertical="true"
-                                                android:layout_marginRight="@dimen/_10sdp"
-                                                android:tint="@color/gray_text_colour"></ImageView>
-
-                                        </LinearLayout>
-                                    </LinearLayout>
-                                    <LinearLayout
-                                        android:layout_marginBottom="@dimen/_5sdp"
-                                        android:id="@+id/select_village_layout"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:visibility="gone">
                                         <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:orientation="horizontal"
-                                            >
+                                            android:orientation="horizontal">
+
                                             <LinearLayout
                                                 android:layout_width="0dp"
                                                 android:layout_height="match_parent"
                                                 android:layout_weight="8"
-                                                android:gravity="center_vertical|end">
-                                                <com.nic.Inspection.Support.MyCustomTextView
-
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:text="Selected Village"
-                                                    android:textColor="@color/red_text_colour"
-                                                    android:textSize="15sp"
-                                                    android:textAlignment="textStart"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
-                                            </LinearLayout>
-                                            <LinearLayout
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:gravity="center_horizontal"
+                                                android:gravity="center_vertical|end"
                                                 android:orientation="vertical">
 
                                                 <com.nic.Inspection.Support.MyCustomTextView
+
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
+                                                    android:text="Select Village"
+                                                    android:textAlignment="textStart"
+                                                    android:textColor="#7E7C7C"
+                                                    android:textSize="15sp"
+                                                    customfontdemo:fontName="@string/font_circular_book" />
+
+                                            </LinearLayout>
+
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="match_parent"
+                                                android:gravity="center_vertical"
+                                                android:orientation="vertical">
+
+                                                <com.nic.Inspection.Support.MyCustomTextView
+
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+
                                                     android:padding="10dp"
                                                     android:text=":"
                                                     android:textColor="#7E7C7C"
@@ -948,82 +868,161 @@
                                                     customfontdemo:fontName="@string/font_circular_book" />
 
                                             </LinearLayout>
+
+
                                             <LinearLayout
                                                 android:layout_width="0dp"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:layout_weight="8"
-                                                android:gravity="center_vertical">
-                                                <com.nic.Inspection.Support.MyCustomTextView
-                                                    android:id="@+id/selected_village_tv"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:text=""
-                                                    android:textColor="@color/gray_text_colour"
-                                                    android:textSize="13sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
+                                                android:gravity="start"
+                                                android:orientation="horizontal">
+
+                                                <Button
+                                                    android:id="@+id/btn_view_village"
+                                                    android:layout_width="90dp"
+                                                    android:layout_height="30dp"
+                                                    android:layout_alignParentBottom="true"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_margin="8dp"
+                                                    android:background="@drawable/add_button"
+                                                    android:text="select"
+                                                    android:textAllCaps="true"
+                                                    android:textColor="@android:color/white" />
+
+                                                <ImageView
+                                                    android:layout_gravity="center_vertical"
+                                                    android:visibility="gone"
+                                                    android:rotation="180"
+                                                    android:layout_width="@dimen/_15sdp"
+                                                    android:layout_height="@dimen/_15sdp"
+                                                    android:id="@+id/village_extended_icon"
+                                                    android:src="@drawable/back"
+                                                    android:layout_alignParentEnd="true"
+                                                    android:layout_centerVertical="true"
+                                                    android:layout_marginRight="@dimen/_10sdp"
+                                                    android:tint="@color/gray_text_colour"></ImageView>
 
                                             </LinearLayout>
                                         </LinearLayout>
-
-                                        <TableLayout
-                                            android:visibility="gone"
+                                        <LinearLayout
+                                            android:layout_marginBottom="@dimen/_5sdp"
+                                            android:id="@+id/select_village_layout"
                                             android:layout_width="match_parent"
-                                            android:layout_height="wrap_content">
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal"
+                                                >
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="8"
+                                                    android:gravity="center_vertical|end">
+                                                    <com.nic.Inspection.Support.MyCustomTextView
 
-                                            <TableRow
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="Selected Village"
+                                                        android:textColor="@color/red_text_colour"
+                                                        android:textSize="15sp"
+                                                        android:textAlignment="textStart"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
+                                                </LinearLayout>
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center_horizontal"
+                                                    android:orientation="vertical">
+
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:padding="10dp"
+                                                        android:text=":"
+                                                        android:textColor="#7E7C7C"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_book" />
+
+                                                </LinearLayout>
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="8"
+                                                    android:gravity="center_vertical">
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:id="@+id/selected_village_tv"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text=""
+                                                        android:textColor="@color/gray_text_colour"
+                                                        android:textSize="13sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
+
+                                                </LinearLayout>
+                                            </LinearLayout>
+
+                                            <TableLayout
+                                                android:visibility="gone"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content">
 
-                                                <com.nic.Inspection.Support.MyCustomTextView
-
+                                                <TableRow
                                                     android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:gravity="end"
-                                                    android:padding="5sp"
-                                                    android:text="Selected Village"
-                                                    android:textColor="@color/red_text_colour"
-                                                    android:textSize="15sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
+                                                    android:layout_height="wrap_content">
 
-                                                <!--<com.nic.RuralInspection.Support.MyCustomTextView-->
-                                                <!--android:layout_width="0dp"-->
-                                                <!--android:layout_height="wrap_content"-->
-                                                <!--android:layout_weight=".10"-->
-                                                <!--android:gravity="center|left"-->
-                                                <!--android:paddingLeft="5dp"-->
-                                                <!--android:text=":"-->
-                                                <!--android:textColor="@android:color/black"-->
-                                                <!--android:textSize="18sp"-->
-                                                <!--customfontdemo:fontName="@string/font_normal" />-->
+                                                    <com.nic.Inspection.Support.MyCustomTextView
 
-                                                <com.nic.Inspection.Support.MyCustomTextView
-                                                    android:id="@+id/selected_village_tv1"
-                                                    android:layout_width="0dp"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_weight="0.48"
-                                                    android:gravity="center|left"
-                                                    android:padding="10sp"
-                                                    android:text=""
-                                                    android:textColor="@color/gray_text_colour"
-                                                    android:textSize="15sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:gravity="end"
+                                                        android:padding="5sp"
+                                                        android:text="Selected Village"
+                                                        android:textColor="@color/red_text_colour"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
+
+                                                    <!--<com.nic.RuralInspection.Support.MyCustomTextView-->
+                                                    <!--android:layout_width="0dp"-->
+                                                    <!--android:layout_height="wrap_content"-->
+                                                    <!--android:layout_weight=".10"-->
+                                                    <!--android:gravity="center|left"-->
+                                                    <!--android:paddingLeft="5dp"-->
+                                                    <!--android:text=":"-->
+                                                    <!--android:textColor="@android:color/black"-->
+                                                    <!--android:textSize="18sp"-->
+                                                    <!--customfontdemo:fontName="@string/font_normal" />-->
+
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:id="@+id/selected_village_tv1"
+                                                        android:layout_width="0dp"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_weight="0.48"
+                                                        android:gravity="center|left"
+                                                        android:padding="10sp"
+                                                        android:text=""
+                                                        android:textColor="@color/gray_text_colour"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
 
 
-                                            </TableRow>
+                                                </TableRow>
 
 
-                                        </TableLayout>
+                                            </TableLayout>
 
-                                        <View
-                                            android:id="@+id/view_village"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0.1dp"
-                                            android:layout_gravity="bottom"
-                                            android:layout_marginLeft="15dp"
-                                            android:background="@color/dashboard_line_dark"
-                                            android:visibility="gone" />
+                                            <View
+                                                android:id="@+id/view_village"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="0.1dp"
+                                                android:layout_gravity="bottom"
+                                                android:layout_marginLeft="15dp"
+                                                android:background="@color/dashboard_line_dark"
+                                                android:visibility="gone" />
 
-                                    </LinearLayout>
+                                        </LinearLayout>
 
                                     </LinearLayout>
 
@@ -1043,116 +1042,41 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="8"
-                                            android:gravity="center_vertical|end"
-                                            android:orientation="vertical">
-
-                                            <com.nic.Inspection.Support.MyCustomTextView
-
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="Select Scheme"
-                                                android:textAlignment="textStart"
-                                                android:textColor="#7E7C7C"
-                                                android:textSize="15sp"
-                                                customfontdemo:fontName="@string/font_circular_book" />
-
-
-                                        </LinearLayout>
-                                        <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="match_parent"
-                                            android:gravity="center_vertical"
-                                            android:orientation="vertical">
-
-                                            <com.nic.Inspection.Support.MyCustomTextView
-
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-
-                                                android:padding="10dp"
-                                                android:text=":"
-                                                android:textColor="#7E7C7C"
-                                                android:textSize="15sp"
-                                                customfontdemo:fontName="@string/font_circular_book" />
-
-                                        </LinearLayout>
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="8"
-                                            android:gravity="start"
-                                            android:orientation="horizontal">
-
-                                            <Button
-                                                android:id="@+id/btn_view_scheme"
-                                                android:layout_width="90dp"
-                                                android:layout_height="30dp"
-                                                android:layout_alignParentBottom="true"
-                                                android:layout_centerInParent="true"
-                                                android:layout_margin="8dp"
-                                                android:background="@drawable/add_button"
-                                                android:text="select"
-                                                android:textAllCaps="true"
-                                                android:textColor="@android:color/white" />
-
-                                            <ImageView
-                                                android:layout_gravity="center_vertical"
-                                                android:visibility="gone"
-                                                android:rotation="180"
-                                                android:layout_width="@dimen/_15sdp"
-                                                android:layout_height="@dimen/_15sdp"
-                                                android:id="@+id/scheme_extended_icon"
-                                                android:src="@drawable/back"
-                                                android:layout_alignParentEnd="true"
-                                                android:layout_centerVertical="true"
-                                                android:layout_marginRight="@dimen/_10sdp"
-                                                android:tint="@color/gray_text_colour"></ImageView>
-
-                                        </LinearLayout>
-                                    </LinearLayout>
-                                    <LinearLayout
-                                        android:layout_marginBottom="@dimen/_5sdp"
-                                        android:id="@+id/select_scheme_layout"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:visibility="gone">
                                         <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:orientation="horizontal"
-                                            >
+                                            android:orientation="horizontal">
+
                                             <LinearLayout
                                                 android:layout_width="0dp"
                                                 android:layout_height="match_parent"
                                                 android:layout_weight="8"
-                                                android:gravity="center_vertical|end">
-                                                <com.nic.Inspection.Support.MyCustomTextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:text="Selected Scheme"
-                                                    android:textColor="@color/red_text_colour"
-                                                    android:textSize="15sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
-                                            </LinearLayout>
-                                            <LinearLayout
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:gravity="center_horizontal"
+                                                android:gravity="center_vertical|end"
                                                 android:orientation="vertical">
 
                                                 <com.nic.Inspection.Support.MyCustomTextView
+
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
+                                                    android:text="Select Scheme"
+                                                    android:textAlignment="textStart"
+                                                    android:textColor="#7E7C7C"
+                                                    android:textSize="15sp"
+                                                    customfontdemo:fontName="@string/font_circular_book" />
+
+
+                                            </LinearLayout>
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="match_parent"
+                                                android:gravity="center_vertical"
+                                                android:orientation="vertical">
+
+                                                <com.nic.Inspection.Support.MyCustomTextView
+
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+
                                                     android:padding="10dp"
                                                     android:text=":"
                                                     android:textColor="#7E7C7C"
@@ -1162,71 +1086,146 @@
                                             </LinearLayout>
                                             <LinearLayout
                                                 android:layout_width="0dp"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:layout_weight="8"
-                                                android:gravity="center_vertical">
-                                                <com.nic.Inspection.Support.MyCustomTextView
-                                                    android:id="@+id/selected_scheme_tv"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:text=""
-                                                    android:textColor="@color/gray_text_colour"
-                                                    android:textSize="13sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
+                                                android:gravity="start"
+                                                android:orientation="horizontal">
+
+                                                <Button
+                                                    android:id="@+id/btn_view_scheme"
+                                                    android:layout_width="90dp"
+                                                    android:layout_height="30dp"
+                                                    android:layout_alignParentBottom="true"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_margin="8dp"
+                                                    android:background="@drawable/add_button"
+                                                    android:text="select"
+                                                    android:textAllCaps="true"
+                                                    android:textColor="@android:color/white" />
+
+                                                <ImageView
+                                                    android:layout_gravity="center_vertical"
+                                                    android:visibility="gone"
+                                                    android:rotation="180"
+                                                    android:layout_width="@dimen/_15sdp"
+                                                    android:layout_height="@dimen/_15sdp"
+                                                    android:id="@+id/scheme_extended_icon"
+                                                    android:src="@drawable/back"
+                                                    android:layout_alignParentEnd="true"
+                                                    android:layout_centerVertical="true"
+                                                    android:layout_marginRight="@dimen/_10sdp"
+                                                    android:tint="@color/gray_text_colour"></ImageView>
 
                                             </LinearLayout>
                                         </LinearLayout>
-
-                                        <TableLayout
-                                            android:visibility="gone"
+                                        <LinearLayout
+                                            android:layout_marginBottom="@dimen/_5sdp"
+                                            android:id="@+id/select_scheme_layout"
                                             android:layout_width="match_parent"
-                                            android:layout_height="wrap_content">
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal"
+                                                >
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="8"
+                                                    android:gravity="center_vertical|end">
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="Selected Scheme"
+                                                        android:textColor="@color/red_text_colour"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
+                                                </LinearLayout>
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center_horizontal"
+                                                    android:orientation="vertical">
 
-                                            <TableRow
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:padding="10dp"
+                                                        android:text=":"
+                                                        android:textColor="#7E7C7C"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_book" />
+
+                                                </LinearLayout>
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="8"
+                                                    android:gravity="center_vertical">
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:id="@+id/selected_scheme_tv"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text=""
+                                                        android:textColor="@color/gray_text_colour"
+                                                        android:textSize="13sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
+
+                                                </LinearLayout>
+                                            </LinearLayout>
+
+                                            <TableLayout
+                                                android:visibility="gone"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content">
 
-                                                <com.nic.Inspection.Support.MyCustomTextView
-
+                                                <TableRow
                                                     android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:gravity="end"
-                                                    android:padding="5sp"
-                                                    android:text="Selected Scheme"
-                                                    android:textColor="@color/red_text_colour"
-                                                    android:textSize="15sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
+                                                    android:layout_height="wrap_content">
 
-                                                <!--<com.nic.RuralInspection.Support.MyCustomTextView-->
-                                                <!--android:layout_width="0dp"-->
-                                                <!--android:layout_height="wrap_content"-->
-                                                <!--android:layout_weight=".10"-->
-                                                <!--android:gravity="center|left"-->
-                                                <!--android:paddingLeft="5dp"-->
-                                                <!--android:text=":"-->
-                                                <!--android:textColor="@android:color/black"-->
-                                                <!--android:textSize="18sp"-->
-                                                <!--customfontdemo:fontName="@string/font_normal" />-->
+                                                    <com.nic.Inspection.Support.MyCustomTextView
 
-                                                <com.nic.Inspection.Support.MyCustomTextView
-                                                    android:id="@+id/selected_scheme_tv1"
-                                                    android:layout_width="0dp"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_weight="0.48"
-                                                    android:gravity="center|left"
-                                                    android:padding="10sp"
-                                                    android:text=""
-                                                    android:textColor="@color/gray_text_colour"
-                                                    android:textSize="15sp"
-                                                    customfontdemo:fontName="@string/font_circular_bold" />
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:gravity="end"
+                                                        android:padding="5sp"
+                                                        android:text="Selected Scheme"
+                                                        android:textColor="@color/red_text_colour"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
+
+                                                    <!--<com.nic.RuralInspection.Support.MyCustomTextView-->
+                                                    <!--android:layout_width="0dp"-->
+                                                    <!--android:layout_height="wrap_content"-->
+                                                    <!--android:layout_weight=".10"-->
+                                                    <!--android:gravity="center|left"-->
+                                                    <!--android:paddingLeft="5dp"-->
+                                                    <!--android:text=":"-->
+                                                    <!--android:textColor="@android:color/black"-->
+                                                    <!--android:textSize="18sp"-->
+                                                    <!--customfontdemo:fontName="@string/font_normal" />-->
+
+                                                    <com.nic.Inspection.Support.MyCustomTextView
+                                                        android:id="@+id/selected_scheme_tv1"
+                                                        android:layout_width="0dp"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_weight="0.48"
+                                                        android:gravity="center|left"
+                                                        android:padding="10sp"
+                                                        android:text=""
+                                                        android:textColor="@color/gray_text_colour"
+                                                        android:textSize="15sp"
+                                                        customfontdemo:fontName="@string/font_circular_bold" />
 
 
-                                            </TableRow>
+                                                </TableRow>
 
 
-                                        </TableLayout>
+                                            </TableLayout>
 
-                                    </LinearLayout>
+                                        </LinearLayout>
 
                                     </LinearLayout>
 
@@ -1246,7 +1245,7 @@
                         </LinearLayout>
 
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
                 <RelativeLayout
                     android:id="@+id/add_action_layout"
@@ -1338,7 +1337,7 @@
 
                             android:orientation="horizontal">
 
-                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
 
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -1383,7 +1382,7 @@
                                         android:textSize="@dimen/menu_title_size"
                                         customfontdemo:fontName="@string/font_normal" />
                                 </LinearLayout>
-                            </android.support.v7.widget.CardView>
+                            </androidx.cardview.widget.CardView>
 
                         </RelativeLayout>
                     </LinearLayout>
@@ -1408,7 +1407,7 @@
 
                             android:orientation="horizontal">
 
-                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
 
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -1452,7 +1451,7 @@
                                         android:textSize="@dimen/menu_title_size"
                                         customfontdemo:fontName="@string/font_normal" />
                                 </LinearLayout>
-                            </android.support.v7.widget.CardView>
+                            </androidx.cardview.widget.CardView>
 
                         </RelativeLayout>
                     </LinearLayout>

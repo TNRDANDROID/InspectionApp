@@ -23,7 +23,7 @@
         android:visibility="gone"
         android:text="Please check the Image to Add the Action"/>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_margin="@dimen/_10sdp"
         android:id="@+id/image_preview_action_recyclerview"
         android:layout_width="match_parent"

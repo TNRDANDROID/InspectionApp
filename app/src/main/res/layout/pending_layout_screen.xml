@@ -17,7 +17,7 @@
 
 
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_margin="@dimen/_10sdp"
             android:id="@+id/pending_recycler_view"
             android:layout_below="@+id/toolbar"

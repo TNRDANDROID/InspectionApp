@@ -7,16 +7,15 @@ import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
+import com.google.android.material.textfield.TextInputLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.text.InputType;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -25,7 +24,6 @@ import com.android.volley.VolleyError;
 import com.nic.Inspection.DataBase.DBHelper;
 import com.nic.Inspection.R;
 import com.nic.Inspection.Support.MyCustomTextView;
-import com.nic.Inspection.Support.MyEditTextView;
 import com.nic.Inspection.Utils.FontCache;
 import com.nic.Inspection.Utils.UrlGenerator;
 import com.nic.Inspection.Utils.Utils;
@@ -149,8 +147,8 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     }
 
     private void checkLoginScreen() {
-        userName.setText("9999000000");
-        passwordEditText.setText("Rd67#$");
+        /*userName.setText("9999000000");
+        passwordEditText.setText("Rd67#$");*/
 //        if ((Utils.isOnline())) {
 //
 //            try {
@@ -233,6 +231,8 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
         Log.d("user", "" + userName.getText().toString().trim());
 
+        Log.d("params",params.toString());
+
 
         return params;
     }
@@ -270,6 +270,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                         prefManager.setLevels(jsonObject.get(AppConstant.LEVELS));
                         prefManager.setInspectedOfficerName(jsonObject.get(AppConstant.INSPECTED_USER_NAME));
                         prefManager.setInspectedOfficerDesignation(jsonObject.get(AppConstant.INSPECTED_DESIGATION_NAME));
+                       // prefManager.setINSPECTED_OFFICER_DEPARTMENT_NAME(jsonObject.get(AppConstant.INSPECTED_OFFICER_DEPARTMENT_NAME));
                         Log.d("userdata", "" + prefManager.getDistrictCode() + prefManager.getBlockCode() + prefManager.getPvCode() + prefManager.getDistrictName() + prefManager.getBlockName() + prefManager.getPvName() + prefManager.getLevels()+prefManager.getInspectedOfficerName());
                         prefManager.setUserPassKey(decryptedKey);
                         showHomeScreen();

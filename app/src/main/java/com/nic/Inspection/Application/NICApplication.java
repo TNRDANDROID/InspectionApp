@@ -117,7 +117,7 @@ public class NICApplication extends Application {
         CertificateFactory cf = null;
         try {
             cf = CertificateFactory.getInstance("X.509");
-            InputStream caInput = getResources().openRawResource(R.raw.tnrdgovin);
+            InputStream caInput = getResources().openRawResource(R.raw.drdpr_public);
             Certificate ca;
             try {
                 ca = cf.generateCertificate(caInput);

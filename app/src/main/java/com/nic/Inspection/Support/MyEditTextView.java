@@ -1,5 +1,6 @@
 package com.nic.Inspection.Support;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 /**
  * Created by AchanthiSundar on 28-12-2018.
  */
+@SuppressLint("AppCompatCustomView")
 public class MyEditTextView extends EditText {
 
     public MyEditTextView(Context context, AttributeSet attrs, int defStyle) {

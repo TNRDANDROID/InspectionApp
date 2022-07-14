@@ -66,6 +66,7 @@ public class PrefManager {
     private static final String KEY_FIN_YEAR_JSON = "fin_year_json";
     private static final String KEY_START_DATE = "start_date";
     private static final String KEY_END_DATE = "end_date";
+    private static final String INSPECTED_OFFICER_DEPARTMENT_NAME = "inspected_officer_department_name";
 
 
     private static final String IMEI = "imei";
@@ -240,6 +241,15 @@ public class PrefManager {
 
     public String getLevels() {
         return pref.getString(KEY_LEVELS, null);
+    }
+    public Object setINSPECTED_OFFICER_DEPARTMENT_NAME(Object key) {
+        editor.putString(INSPECTED_OFFICER_DEPARTMENT_NAME, String.valueOf(key));
+        editor.commit();
+        return key;
+    }
+
+    public String getINSPECTED_OFFICER_DEPARTMENT_NAME() {
+        return pref.getString(INSPECTED_OFFICER_DEPARTMENT_NAME, null);
     }
 
     public Object setInspectedOfficerName(Object key) {

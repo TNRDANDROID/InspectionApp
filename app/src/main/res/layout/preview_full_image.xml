@@ -6,7 +6,7 @@
     android:background="@android:color/transparent"
     tools:context="com.nic.Inspection.Activity.FullImageActivity">
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/district_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
 
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <!--<ImageView-->
         <!--android:id="@+id/preview_Full_imageview"-->

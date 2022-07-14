@@ -6,10 +6,10 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +20,7 @@ import com.nic.Inspection.DataBase.DBHelper;
 import com.nic.Inspection.Model.BlockListValue;
 import com.nic.Inspection.R;
 import com.nic.Inspection.Support.MyCustomTextView;
+import com.nic.Inspection.Utils.Utils;
 import com.nic.Inspection.constant.AppConstant;
 import com.nic.Inspection.session.PrefManager;
 
@@ -88,12 +89,13 @@ public class ViewActionImageScreen extends AppCompatActivity implements View.OnC
         Cursor imageListPreview = getRawEvents(image_sql, null);
 
         if (imageListPreview.getCount() > 0) {
-            if (imageListPreview.moveToFirst()) {
-                do {
-                    String work_id = imageListPreview.getString(imageListPreview.getColumnIndexOrThrow(AppConstant.WORK_ID));
-                    String latitude = imageListPreview.getString(imageListPreview.getColumnIndexOrThrow(AppConstant.LATITUDE));
-                    String longitude = imageListPreview.getString(imageListPreview.getColumnIndexOrThrow(AppConstant.LONGITUDE));
-                    String description = imageListPreview.getString(imageListPreview.getColumnIndexOrThrow(AppConstant.DESCRIPTION));
+            if (imageListPreview.moveToNext()) {
+                try{
+                     do {
+                    String work_id = Utils.checkIsNUll(imageListPreview.getString(imageListPreview.getColumnIndexOrThrow(AppConstant.WORK_ID)));
+                    String latitude = Utils.checkIsNUll(imageListPreview.getString(imageListPreview.getColumnIndexOrThrow(AppConstant.LATITUDE)));
+                    String longitude = Utils.checkIsNUll(imageListPreview.getString(imageListPreview.getColumnIndexOrThrow(AppConstant.LONGITUDE)));
+                    String description = Utils.checkIsNUll(imageListPreview.getString(imageListPreview.getColumnIndexOrThrow(AppConstant.DESCRIPTION)));
 
                     byte[] photo = imageListPreview.getBlob(imageListPreview.getColumnIndexOrThrow(AppConstant.IMAGE));
                     byte[] decodedString = Base64.decode(photo, Base64.DEFAULT);
@@ -113,6 +115,10 @@ public class ViewActionImageScreen extends AppCompatActivity implements View.OnC
                     imagePreviewlistvalues.add(imageValue);
 
                 } while (imageListPreview.moveToNext());
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         }
 

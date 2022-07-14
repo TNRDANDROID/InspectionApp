@@ -11,12 +11,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -24,7 +24,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.nic.Inspection.DataBase.DBHelper;
@@ -59,7 +61,7 @@ import static com.nic.Inspection.Activity.LoginScreen.db;
 public class Dashboard extends AppCompatActivity implements Api.ServerResponseListener, View.OnClickListener, MyDialog.myOnClickListener, AppVersionHelper.myAppVersionInterface {
     private ImageView logout;
     private static LinearLayout block_user_layout, pending_upload_layout, download_layout, district_user_layout, state_user_layout;
-    private CardView uploadInspectionReport;
+    private RelativeLayout uploadInspectionReport;
     private static PrefManager prefManager;
     private ProgressHUD progressHUD;
     private static MyCustomTextView district_tv, block_user_tv, upload_inspection_report_tv, count_tv, title_tv, off_name, ins_off_title, download_tv;
@@ -90,7 +92,7 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
     private void intializeUI() {
         prefManager = new PrefManager(this);
         logout = (ImageView) findViewById(R.id.logout);
-        uploadInspectionReport = (CardView) findViewById(R.id.upload_inspection_report);
+        uploadInspectionReport = (RelativeLayout) findViewById(R.id.upload_inspection_report);
         pending_upload_layout = (LinearLayout) findViewById(R.id.pending_upload_layout);
         block_user_layout = (LinearLayout) findViewById(R.id.block_user_layout);
         district_user_layout = (LinearLayout) findViewById(R.id.district_user_layout);
@@ -105,8 +107,8 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
         download_tv = (MyCustomTextView) findViewById(R.id.download_tv);
         ins_off_title = (MyCustomTextView) findViewById(R.id.ins_off_title);
 
-        s_d_b_type_name=findViewById(R.id.s_d_b_type_name);
-        s_d_b_type_name_value=findViewById(R.id.s_d_b_type_name_value);
+        /*s_d_b_type_name=findViewById(R.id.s_d_b_type_name);
+        s_d_b_type_name_value=findViewById(R.id.s_d_b_type_name_value);*/
 
         off_name.setText(prefManager.getInspectedOfficerName());
         uploadInspectionReport.setOnClickListener(this);
@@ -148,16 +150,8 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
             district_user_layout.setVisibility(View.GONE);
         }
         if(prefManager.getLevels().equalsIgnoreCase("B")){
-            s_d_b_type_name.setText("Block Level");
-            s_d_b_type_name_value.setText(prefManager.getBlockName());
-        }
-        if(prefManager.getLevels().equalsIgnoreCase("S")){
-            s_d_b_type_name.setText("State Level");
-            s_d_b_type_name_value.setText(prefManager.getDistrictName());
-        }
-        if(prefManager.getLevels().equalsIgnoreCase("D")){
-            s_d_b_type_name.setText("District Level");
-            s_d_b_type_name_value.setText(prefManager.getDistrictName());
+           /* s_d_b_type_name.setText("Block Level");
+            s_d_b_type_name_value.setText(prefManager.getBlockName());*/
         }
 
         new Handler().postDelayed(new Runnable() {
@@ -251,6 +245,10 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
         if (count > 0) {
             pending_upload_layout.setVisibility(View.VISIBLE);
             count_tv.setText(String.valueOf(count));
+        }
+        else {
+            pending_upload_layout.setVisibility(View.VISIBLE);
+            count_tv.setText(String.valueOf(0));
         }
     }
 
@@ -422,8 +420,14 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
                 selectBlockSchemeScreen();
                 break;
             case R.id.pending_upload_layout:
+                int count=0;
 //                pendingLyoutScreen();
-                openPendingLayoutFragment();
+                if(count<(Integer.parseInt(count_tv.getText().toString()))) {
+                    openPendingLayoutFragment();
+                }
+                else {
+                    Toast.makeText(Dashboard.this, "No Record", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.download_layout:
 //                pendingLyoutScreen();
@@ -554,6 +558,7 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
                 if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
                     new InsertSchemeTask().execute(jsonObject);
                 }
+                Log.d("SchemeList", "" + responseDecryptedSchemeKey);
             }
 
             if ("VillageList".equals(urlType) && responseObj != null) {

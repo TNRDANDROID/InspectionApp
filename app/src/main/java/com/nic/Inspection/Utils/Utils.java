@@ -13,9 +13,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.SwitchCompat;
+import androidx.core.content.FileProvider;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SwitchCompat;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -1185,7 +1185,7 @@ public class Utils {
             }
             dataSet.put(AppConstant.FINANCIAL_YEAR, prefManager.getFinYearJson());
         }
-        Log.d("habitationListDist", "" + dataSet);
+        Log.d("workListOptional", "" + dataSet);
         return dataSet;
     }
 
@@ -1232,7 +1232,7 @@ public class Utils {
         if(prefManager.getLevels().equalsIgnoreCase("D") || prefManager.getLevels().equalsIgnoreCase("S")){
             dataSet.put(AppConstant.FIN_YEAR,prefManager.getFinYearJson());
         }
-        Log.d("objectFinYear", "" + dataSet);
+        Log.d("schemeListDistrictWise", "" + dataSet);
         return dataSet;
     }
 
@@ -1240,21 +1240,21 @@ public class Utils {
         JSONObject dataSet = new JSONObject();
         dataSet.put(AppConstant.KEY_SERVICE_ID, AppConstant.KEY_SCHEME_FINYEAR_LIST_LAST_NYEARS);
         dataSet.put(AppConstant.N_YEAR,3);
-        Log.d("object", "" + dataSet);
+        Log.d("schemeFinyearList", "" + dataSet);
         return dataSet;
     }
 
     public static JSONObject stageListJsonParams() throws JSONException {
         JSONObject dataSet = new JSONObject();
         dataSet.put(AppConstant.KEY_SERVICE_ID, AppConstant.STAGE_LIST);
-        Log.d("object", "" + dataSet);
+        Log.d("stageListJsonParams", "" + dataSet);
         return dataSet;
     }
 
     public static JSONObject observationListJsonParams() throws JSONException {
         JSONObject dataSet = new JSONObject();
         dataSet.put(AppConstant.KEY_SERVICE_ID, AppConstant.KEY_OBSERVATION);
-        Log.d("object", "" + dataSet);
+        Log.d("observationList", "" + dataSet);
         return dataSet;
     }
 
@@ -1372,5 +1372,14 @@ public class Utils {
             e.printStackTrace();
         }
         return b;
+    }
+
+    public static String checkIsNUll(String value){
+        if(value!=null&&!value.equals("null")){
+            return value;
+        }
+        else {
+           return value = "";
+        }
     }
 }

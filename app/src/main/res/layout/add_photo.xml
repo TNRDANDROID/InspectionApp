@@ -29,6 +29,15 @@
             customfontdemo:fontName="@string/font_medium"
             android:visibility="gone"/>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back"
+            android:src="@drawable/back"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:tint="@color/white"></ImageView>
+
     </RelativeLayout>
 
     <com.nic.Inspection.Support.MyCustomTextView

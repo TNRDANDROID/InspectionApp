@@ -6,7 +6,6 @@
 
 
     <include
-        android:layout_above="@+id/textView1"
         layout="@layout/download_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -19,7 +18,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:padding="@dimen/_6sdp"
-        android:text="Sofware Designed &amp; Developed by NIC"
+        android:text="Software Designed &amp; Developed by NIC"
         android:textAlignment="center"
         android:textColor="#FC46B0F3"
         android:textSize="15sp"

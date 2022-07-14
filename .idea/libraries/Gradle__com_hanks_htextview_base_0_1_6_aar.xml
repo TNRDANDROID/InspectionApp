@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.hanks:htextview-base:0.1.6@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/htextview-base-0.1.6.aar/8c08f89a8bf248c044acd3181df170b3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/htextview-base-0.1.6.aar/8c08f89a8bf248c044acd3181df170b3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jetified-htextview-base-0.1.6.aar/f72fd6d37eff2e1acbbe35926e97ed31/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jetified-htextview-base-0.1.6.aar/f72fd6d37eff2e1acbbe35926e97ed31/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

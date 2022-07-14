@@ -11,21 +11,20 @@
 
         <RelativeLayout
             android:layout_marginTop="-200dp"
-            android:layout_marginLeft="-80dp"
+            android:layout_marginStart="-80dp"
             android:id="@+id/rl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/new_circle_b1"></RelativeLayout>
+            android:background="@drawable/new_circle_b1"/>
         <RelativeLayout
             android:layout_marginTop="-55dp"
-            android:layout_marginRight="-50dp"
+            android:layout_marginEnd="-50dp"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/new_circle_b1"></RelativeLayout>
+            android:background="@drawable/new_circle_b1"/>
 
     </RelativeLayout>
-
     <RelativeLayout
         android:visibility="gone"
         android:id="@+id/tool_bar_bg_rl"
@@ -125,7 +124,6 @@
         android:textSize="17sp"
         android:textStyle="bold"
         customfontdemo:fontName="@string/font_circular_medium" />
-
     <com.nic.Inspection.Support.MyCustomTextView
         android:id="@+id/amp"
         android:visibility="gone"
@@ -139,7 +137,6 @@
         android:textSize="17sp"
         android:textStyle="bold"
         customfontdemo:fontName="@string/font_circular_medium" />
-
     <com.nic.Inspection.Support.MyCustomTextView
         android:id="@+id/dp"
         android:visibility="gone"
@@ -155,24 +152,113 @@
         customfontdemo:fontName="@string/font_circular_medium" />
 
     <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:id="@+id/rl1"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <RelativeLayout
+                android:elevation="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/rect_drawble_curved"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:id="@+id/user_name_layout">
+
+                <EditText
+                    android:textAlignment="center"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:hint="User Name"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:id="@+id/user_name"></EditText>
+            </RelativeLayout>
+            <RelativeLayout
+                android:elevation="@dimen/_5sdp"
+                android:background="@drawable/rect_drawble_curved"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_below="@+id/user_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:id="@+id/user_password_layout">
+
+                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+                    android:textColor="#000"
+                    android:hint="password"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:textAlignment="center"
+                    android:id="@+id/password"></com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/btn_sign_in"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@+id/user_password_layout"
+                android:background="@drawable/log_in_button_new_bg">
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
         <RelativeLayout
             android:id="@+id/bg1"
-            android:layout_marginLeft="-50dp"
+            android:layout_marginStart="-50dp"
             android:layout_marginBottom="-50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/new_circle_bg_2"></RelativeLayout>
+            android:background="@drawable/new_circle_bg_2"/>
         <RelativeLayout
-            android:layout_toRightOf="@+id/bg1"
+            android:layout_toEndOf="@+id/bg1"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
-            android:background="@drawable/new_circle_bg_2"></RelativeLayout>
+            android:background="@drawable/new_circle_bg_2"/>
 
     </RelativeLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -181,16 +267,16 @@
         <RelativeLayout
             android:id="@+id/bg2"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="-50dp"
+            android:layout_marginEnd="-50dp"
             android:layout_marginBottom="-50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/new_circle_bg_2"></RelativeLayout>
+            android:background="@drawable/new_circle_bg_2"/>
         <RelativeLayout
-            android:layout_toLeftOf="@+id/bg2"
+            android:layout_toStartOf="@+id/bg2"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
-            android:background="@drawable/new_circle_bg_2"></RelativeLayout>
+            android:background="@drawable/new_circle_bg_2"/>
 
     </RelativeLayout>
     <RelativeLayout

@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:customfontdemo="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFF">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    android:background="@drawable/card_bg_pink">
 
 
 
@@ -15,15 +16,12 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="25dp">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <RelativeLayout
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-
-            card_view:cardCornerRadius="5dp"
-            card_view:cardElevation="5dp">
+            android:layout_gravity="center_vertical"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,7 +48,7 @@
                             android:paddingRight="5dp"
                             android:text="District:"
                             android:textAlignment="center"
-                            android:textColor="@color/red_text_colour"
+                            android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             customfontdemo:fontName="@string/font_normal"  />
@@ -64,7 +62,7 @@
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
                             android:text="Kanchipuram"
-                            android:textColor="@color/red_text_colour"
+                            android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             customfontdemo:fontName="@string/font_normal"  />
@@ -83,6 +81,7 @@
                             android:layout_marginRight="8dp"
                             android:id="@+id/hide_show"
                             android:rotation="90"
+                            android:tint="@color/white"
                             android:src="@drawable/ic_right_arrow"/>
 
                     </LinearLayout>
@@ -113,7 +112,7 @@
                             android:paddingLeft="19dp"
                             android:paddingRight="5dp"
                             android:text="Block:"
-                            android:textColor="#FF0000"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="normal"
                             customfontdemo:fontName="@string/font_normal"  />
@@ -126,7 +125,7 @@
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
                             android:text="Thirchy"
-                            android:textColor="#FF0000"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="normal"
                             customfontdemo:fontName="@string/font_normal"  />
@@ -136,7 +135,7 @@
 
                 </LinearLayout>
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </RelativeLayout>
     </LinearLayout>
 
 
@@ -168,7 +167,7 @@
                     android:padding="10dp"
                     android:text="Scheme "
                     android:textAlignment="center"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
 
@@ -189,7 +188,7 @@
                     android:padding="10dp"
                     android:text=":"
                     android:textAlignment="center"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
 
@@ -210,7 +209,7 @@
                     android:padding="10dp"
                     android:text="Scheme Name"
                     android:textAlignment="textStart"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
             </LinearLayout>
@@ -235,7 +234,7 @@
                     android:layout_gravity="start"
                     android:padding="10dp"
                     android:text="Block"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
 
@@ -259,7 +258,7 @@
                     android:padding="10dp"
                     android:text=":"
                     android:textAlignment="center"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
 
@@ -280,7 +279,7 @@
                     android:padding="10dp"
                     android:text="Block Name"
                     android:textAlignment="textStart"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
             </LinearLayout>
@@ -307,7 +306,7 @@
                     android:layout_gravity="start"
                     android:padding="10dp"
                     android:text="Village"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
 
@@ -331,7 +330,7 @@
                     android:padding="10dp"
                     android:text=":"
                     android:textAlignment="center"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
 
@@ -352,7 +351,7 @@
                     android:padding="10dp"
                     android:text="Village Name"
                     android:textAlignment="textStart"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
             </LinearLayout>
@@ -380,7 +379,7 @@
                     android:padding="10dp"
                     android:text="Fin Year"
                     android:textAlignment="center"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
 
@@ -401,7 +400,7 @@
                     android:padding="10dp"
                     android:text=":"
                     android:textAlignment="center"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
 
@@ -422,7 +421,7 @@
                     android:padding="10dp"
                     android:text="financial year"
                     android:textAlignment="textStart"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     customfontdemo:fontName="@string/font_circular_book" />
             </LinearLayout>

@@ -1,5 +1,6 @@
 package com.nic.Inspection.Support;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
@@ -12,6 +13,7 @@ import com.nic.Inspection.R;
 /**
  * Created by AchanthiSundar on 28-12-2018.
  */
+@SuppressLint("AppCompatCustomView")
 public class MyCustomTextView extends TextView {
 
     public MyCustomTextView(Context context, AttributeSet attrs, int defStyle) {
